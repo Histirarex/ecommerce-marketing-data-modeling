@@ -39,6 +39,7 @@ CREATE TABLE Dim_Tempos (
 -- 2. Criação da Tabela Fato
 
 CREATE TABLE Fato_Desempenho_Marketing(
+    sk_fato INT IDENTITY(1,1) PRIMARY KEY, 
     sk_clientes INT,
     sk_regiao INT,
     sk_produtos INT,
@@ -48,7 +49,6 @@ CREATE TABLE Fato_Desempenho_Marketing(
     qtd_conversoes INT,
     qtd_abandonos INT,
     
-    CONSTRAINT PK_Fato_Desempenho PRIMARY KEY (sk_clientes, sk_regiao, sk_produtos, sk_midia, sk_data),
     CONSTRAINT FK_Fato_Clientes FOREIGN KEY (sk_clientes) REFERENCES Dim_Clientes(sk_clientes),
     CONSTRAINT FK_Fato_Regiao FOREIGN KEY (sk_regiao) REFERENCES Dim_Regiao(sk_regiao),
     CONSTRAINT FK_Fato_Produto FOREIGN KEY (sk_produtos) REFERENCES Dim_Produtos(sk_produtos),
